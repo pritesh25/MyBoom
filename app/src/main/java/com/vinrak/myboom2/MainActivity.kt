@@ -7,8 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.vinrak.myboom2.boom.KonfettiView
 import com.vinrak.myboom2.boom.models.Shape
 import com.vinrak.myboom2.boom.models.Size
+import java.util.*
+import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
+
+    //val colors = intArrayOf(R.color.yellow, R.color.red, R.color.green, R.color.violet)
+    val colors = intArrayOf(R.color.yellow, R.color.red)
+    val minSpeed: Float = 4f
+    val maxSpeed: Float = 7f
+    val timeToLive: Long = 2000
+    val shapes: Array<Shape> = arrayOf(Shape.Square, Shape.Circle)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,12 +26,7 @@ class MainActivity : AppCompatActivity() {
         val viewKonfetti = findViewById<KonfettiView>(R.id.viewKonfetti)
         viewKonfetti.setOnClickListener {
 
-            //val colors = intArrayOf(R.color.yellow, R.color.red, R.color.green, R.color.violet)
-            val colors = intArrayOf(R.color.yellow, R.color.red)
-            val minSpeed: Float = 4f
-            val maxSpeed: Float = 7f
-            val timeToLive: Long = 2000
-            val shapes: Array<Shape> = arrayOf(Shape.Square, Shape.Circle)
+
 
             viewKonfetti.build()
                     .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.RED, Color.BLUE, Color.CYAN)
@@ -37,5 +42,10 @@ class MainActivity : AppCompatActivity() {
 
        viewKonfetti.dispatchTouchEvent(MotionEvent.obtain(0, 0, MotionEvent.ACTION_DOWN, 100F, 100F, 0.5f, 5F, 0, 1F, 1F, 0, 0))
         viewKonfetti.dispatchTouchEvent(MotionEvent.obtain(0, 0, MotionEvent.ACTION_UP, 100F, 100F, 0.5f, 5F, 0, 1F, 1F, 0, 0))
+
+        Timer("SettingUp", false).schedule(timeToLive) {
+            viewKonfetti.isEnabled = false
+        }
+
     }
 }
