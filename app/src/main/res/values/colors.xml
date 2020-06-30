@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="violet">#0540F2</color>
+    <color name="yellow">#FFBA00</color>
+    <color name="loan_background">#00134B</color>
+    <color name="brown">#A70000</color>
+    <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="advance_salary">#36425A</color>
+    <color name="green">#00BF00</color>
+    <color name="green2">#009e35</color>
+
+    <color name="bottom_sheet_dim_color">#000000</color>
+    <color name="bottom_sheet_background_color">#ffffff</color>
+</resources>
