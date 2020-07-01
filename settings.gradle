@@ -1,2 +1,3 @@
+include ':explosion'
 include ':app'
 rootProject.name = "MyBoom2"
